@@ -18,7 +18,7 @@ function createBoard() {
 }
 
 // createBoard();
-
+// testing git auth
 function protoBoard(insertArrayHere) {
   insertArrayHere.forEach((e) => {
     e.forEach((el) => {
