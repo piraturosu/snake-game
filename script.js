@@ -19,12 +19,14 @@ function createBoard() {
 
 // createBoard();
 
-
 function protoBoard(insertArrayHere) {
   insertArrayHere.forEach((e) => {
     e.forEach((el) => {
-      console.log(el)
+      // console.log(el)
       let cell = document.createElement("div");
+      if (el === null) {
+        cell.classList.add("astaesefu");
+      }
       cell.classList.add("cell");
       gridContainer.appendChild(cell);
     });

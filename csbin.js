@@ -19,7 +19,7 @@ for (let y = 0; y !== BOARD_HEIGHT; ++y) {
     // yCell.push(xCell);
     // BOARD.push(yCell);
 }
-console.log(BOARD);
+// console.log(BOARD);
 
 // x max 2
 // y max 3

@@ -12,4 +12,6 @@ function generateBoard() {
   }
 }
 generateBoard();
+
+BOARD[6][10] = null
 console.log(BOARD[6][10]);
