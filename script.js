@@ -17,24 +17,20 @@ function createBoard() {
   }
 }
 
-createBoard();
+// createBoard();
 
-console.log(BOARD.length)
 
-//TODO APEL PRIN REFERINTA + APEL PRIN VALOARE
-// let x = { valoare: 2 };
-// let postX = postPlusPlus(x);
-// console.log(postX, x);
-// function postPlusPlus(value) {
-//   let previous = value; //{ ...value };
-//   value.valoare = value.valoare + 1;
-//   return previous;
-// }
-
-// function prePlusPlus(value) {
-//   value = value + 1;
-//   return value;
-// }
+function protoBoard(insertArrayHere) {
+  insertArrayHere.forEach((e) => {
+    e.forEach((el) => {
+      console.log(el)
+      let cell = document.createElement("div");
+      cell.classList.add("cell");
+      gridContainer.appendChild(cell);
+    });
+  });
+}
+protoBoard(BOARD);
 
 // let test = document.querySelector('[coordinates="9"]');
 
