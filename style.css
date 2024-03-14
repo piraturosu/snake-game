@@ -1,0 +1,56 @@
+body {
+  width: 100vw;
+
+  margin: 0;
+  padding: 0;
+
+  background-color: #e8ffe2;
+
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#topMenu {
+  position: fixed;
+  top: 0;
+  left: 50vw;
+  transform: translate(-50%, 20vh);
+
+  display: flex;
+
+  color: #2d9bf0;
+}
+
+#topMenu h1 {
+  font-size: 4vh;
+}
+
+#board {
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.cell {
+  width: 4.5vh;
+  height: 4.5vh;
+  min-height: 3vh;
+  min-width: 3vh;
+  max-width: 4.5vw;
+  max-height: 4.5vw;
+
+  outline: 0.2vh solid black;
+
+  background-color: #fac710;
+  color: #fac710;
+}
+
+.snake {
+  background-color: blueviolet;
+}
