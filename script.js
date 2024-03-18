@@ -1,20 +1,15 @@
 const elBoardView = document.getElementById("board");
 
 function createBoardView() {
-  //TODO modifica in for
-  BOARD.forEach((e) => {
-    e.forEach((el) => {
-      let cell = document.createElement("div");
-      if (el === null) {
-        cell.classList.add("cell");
-      } else if (el === SNAKE_ID) {
-        cell.classList.add("snake");
+  for (let row of BOARD) {
+    for (let cell of row) {
+      let cellElement = document.createElement("div");
+      if (cell === null) {
+        cellElement.classList.add("cell");
       }
-      //else{cell.classList.add("food");}
-
-      elBoardView.appendChild(cell);
-    });
-  });
+      elBoardView.appendChild(cellElement);
+    }
+  }
 }
 createBoardView();
 
@@ -23,7 +18,6 @@ function updateBoardView() {
   const elCells = elBoardView.children;
 
   for (let row of BOARD) {
-    // console.log(row);
     for (let cell of row) {
       const elCell = elCells[i];
       // Remove all classes
@@ -40,5 +34,4 @@ function updateBoardView() {
   }
 }
 
-setInterval(updateBoardView, 1000);
-
+updateBoardView();
