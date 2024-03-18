@@ -41,20 +41,4 @@ function updateBoardView() {
 }
 
 setInterval(updateBoardView, 1000);
-// function createBoard() {
-//   for (let y = 0; y !== BOARD_HEIGHT; ++y) {
-//     for (let x = 0; x !== BOARD_WIDTH; ++x) {
-//       // console.log(y, x);
-//       let cell = document.createElement("div");
-//       cell.classList.add("cell");
-//       cell.setAttribute("yAxis", `${y}`);
-//       cell.setAttribute("xAxis", `${x}`);
-//       // cell.textContent = `Item ${x + 1}`;
-//       let xAxisValue = cell.getAttribute("xAxis");
-//       // console.log(xAxisValue)
-//       gridContainer.appendChild(cell);
-//     }
-//   }
-// }
 
-// createBoard();

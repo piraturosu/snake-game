@@ -60,7 +60,7 @@ function createSnake(length, x, y) {
 }
 
 generateBoard(20, 10);
-createSnake(4, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
+createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
 
 // setInterval(generateFood, 1000);
 // generateFood();
