@@ -1,4 +1,4 @@
-const elBoardView = document.getElementById("board");
+const boardDivSelector = document.getElementById("board");
 
 function createBoardView() {
   for (let row of BOARD) {
@@ -7,16 +7,17 @@ function createBoardView() {
       if (cell === null) {
         cellElement.classList.add("cell");
       }
-      elBoardView.appendChild(cellElement);
+      boardDivSelector.appendChild(cellElement);
     }
   }
 }
 createBoardView();
 
+const indexOfFood = generateRandomInRange(FOOD_GOOD.length);
+
 function updateBoardView() {
   let i = 0;
-  const elCells = elBoardView.children;
-
+  const elCells = boardDivSelector.children;
   for (let row of BOARD) {
     for (let cell of row) {
       const elCell = elCells[i];
@@ -28,6 +29,10 @@ function updateBoardView() {
         elCell.classList.add("cell");
       } else if (cell === SNAKE_ID) {
         elCell.classList.add("snake");
+      }
+      else {
+        elCell.classList.add("food");
+        elCell.innerHTML = FOOD_GOOD[indexOfFood];
       }
       i += 1;
     }

@@ -52,5 +52,19 @@ body {
 }
 
 .snake {
+  outline: 0.2vh solid black;
+
   background-color: blueviolet;
+}
+
+.food {
+  align-items: center;
+  justify-items: center;
+
+  font-size: 3.1vh;
+  line-height: 3.1vh;
+
+  outline: 0.2vh solid black;
+
+  background-color: #fac710;
 }
