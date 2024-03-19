@@ -29,8 +29,7 @@ function updateBoardView() {
         elCell.classList.add("cell");
       } else if (cell === SNAKE_ID) {
         elCell.classList.add("snake");
-      }
-      else {
+      } else {
         elCell.classList.add("food");
         elCell.innerHTML = FOOD_GOOD[indexOfFood];
       }

@@ -1,3 +1,4 @@
+console.log('first')
 let BOARD = [];
 // for (let y = 0; y !== BOARD_HEIGHT; ++y) {
 //   let yCell = [];
@@ -10,14 +11,14 @@ let BOARD = [];
 //   BOARD.push(yCell);
 // }
 for (let y = 0; y !== BOARD_HEIGHT; ++y) {
-    // let yCell = [];
-    let xCell = [];
-    yCell.push(xCelly);
-    for (let x = 0; x !== BOARD_WIDTH; ++x) {
-        xCell.push(x);
-    }
-    // yCell.push(xCell);
-    // BOARD.push(yCell);
+  // let yCell = [];
+  let xCell = [];
+  yCell.push(xCelly);
+  for (let x = 0; x !== BOARD_WIDTH; ++x) {
+    xCell.push(x);
+  }
+  // yCell.push(xCell);
+  // BOARD.push(yCell);
 }
 // console.log(BOARD);
 
@@ -34,7 +35,7 @@ for (let y = 0; y !== BOARD_HEIGHT; ++y) {
 // [a1 a2 b1 b2 c1 c2] array[4]
 
 function add(i) {
-    i++
+  i++;
 }
 
-console.log(add(0))
+console.log(add(0));
