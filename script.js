@@ -1,14 +1,20 @@
 const boardDivSelector = document.getElementById("board");
 
 function createBoardView() {
+  let a = 0;
   for (let row of BOARD) {
+    let b = 0;
+
     for (let cell of row) {
       let cellElement = document.createElement("div");
       if (cell === null) {
         cellElement.classList.add("cell");
+        cellElement.innerHTML = `${a}/${b}`
       }
       boardDivSelector.appendChild(cellElement);
+      b += 1;
     }
+    a += 1;
   }
 }
 createBoardView();
@@ -37,5 +43,7 @@ function updateBoardView() {
     }
   }
 }
-
-updateBoardView();
+console.log(BOARD)
+// setInterval(
+//   updateBoardView, 100
+// )

@@ -1,41 +1,20 @@
-console.log('first')
-let BOARD = [];
-// for (let y = 0; y !== BOARD_HEIGHT; ++y) {
-//   let yCell = [];
-//   let xCell = [];
-//   yCell.push(y);
-//   for (let x = 0; x !== BOARD_WIDTH; ++x) {
-//     xCell.push(x);
-//   }
-//   yCell.push(xCell);
-//   BOARD.push(yCell);
-// }
-for (let y = 0; y !== BOARD_HEIGHT; ++y) {
-  // let yCell = [];
-  let xCell = [];
-  yCell.push(xCelly);
-  for (let x = 0; x !== BOARD_WIDTH; ++x) {
-    xCell.push(x);
+function createSnake(length, x, y) {
+  SNAKE_LENGTH = length;
+
+  for (let i = 0; i !== length; ++i) {
+    BOARD[y][x + i] = SNAKE_ID;
   }
-  // yCell.push(xCell);
-  // BOARD.push(yCell);
 }
-// console.log(BOARD);
-
-// x max 2
-// y max 3
-// [1, 2]
-
-// [
-//     [a1 a2]
-//     [b1 b2]
-//     [c1 c2] array[2][0]
-// ]
-
-// [a1 a2 b1 b2 c1 c2] array[4]
-
-function add(i) {
-  i++;
-}
-
-console.log(add(0));
+frame1:
+BOARD[5][10]
+BOARD[5][10 + length-1]
+apas sus =>
+frame2:
+BOARD[5--][10] => cap
+BOARD[5][13--]
+frame3:
+BOARD[4--][10]
+BOARD[5][12--]
+frame4:
+BOARD[3--][10]
+BOARD[5][11--]

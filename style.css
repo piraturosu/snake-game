@@ -48,7 +48,7 @@ body {
   outline: 0.2vh solid black;
 
   background-color: #fac710;
-  color: #fac710;
+  /* color: #fac710; */
 }
 
 .snake {
@@ -61,8 +61,8 @@ body {
   align-items: center;
   justify-items: center;
 
-  font-size: 3.1vh;
-  line-height: 3.1vh;
+  font-size: 2vh;
+  line-height: 2vh;
 
   outline: 0.2vh solid black;
 

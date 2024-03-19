@@ -23,7 +23,12 @@ const FOOD_GOOD = [
   "🐣",
 ];
 
-const KEYS = [false, false, false, false];
+const DIRECTIONS = {
+  W: 0,
+  N: 1,
+  E: 2,
+  S: 3,
+};
 
 function generateFood() {
   const index = generateRandomInRange(FOOD_GOOD.length);
@@ -53,13 +58,20 @@ function generateBoard(width, height) {
   }
 }
 
-function createSnake(length, x, y) {
+function reduce(n) {
+  --n;
+}
+
+function createSnake(length) {
   SNAKE_LENGTH = length;
 
-  for (let i = 0; i !== length; ++i) {
-    BOARD[y][x + i] = SNAKE_ID;
-    // console.log(BOARD[y - 1]);
-  }
+  // for (let i = 0; i !== length; ++i) {
+    // }
+    BOARD[y][x] = SNAKE_ID;
+    // reduce(x);
+    --x;
+    BOARD[y][x+2] = null;
+    console.log(x);
 }
 
 function setKeysFalse(indexes) {
@@ -67,6 +79,8 @@ function setKeysFalse(indexes) {
     KEYS[index] = false;
   });
 }
+
+const KEYS = [true, false, false, false];
 
 function listenToKeyPress() {
   document.addEventListener("keydown", function (event) {
@@ -90,6 +104,9 @@ function listenToKeyPress() {
         console.log(KEYS);
         break;
       case "ArrowRight":
+        if (KEYS[0] === true) {
+          break;
+        }
         KEYS[2] = true;
         setKeysFalse([0, 1, 3]);
         console.log("Arrow Right key pressed.");
@@ -102,26 +119,26 @@ function listenToKeyPress() {
   });
 }
 
-const DIRECTIONS = {
-  W: 0,
-  N: 1,
-  E: 2,
-  S: 3
-}
-
+let x = 10;
+let y = 5;
 
 listenToKeyPress();
 generateBoard(20, 10);
-createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
-generateFood();
+function asd() {
+  createSnake(1)
+};
+
+// createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
+// const t = west('1233')
+// setInterval(asd, 200);
+// generateFood();
 
 // BOARD[5][10 + 3] = null;
 // BOARD[5][10 + 4] = null;
-BOARD[5 - 1][10] = SNAKE_ID;
-BOARD[5][10 + 4] = null;
-BOARD[5 - 2][10] = SNAKE_ID;
-BOARD[5][10 + 3] = null;
-
+// BOARD[5 - 1][10] = SNAKE_ID;
+// BOARD[5][10 + 4] = null;
+// BOARD[5 - 2][10] = SNAKE_ID;
+// BOARD[5][10 + 3] = null;
 
 // setInterval(generateFood, 1000);
 // generateFood();
