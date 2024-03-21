@@ -1,22 +1,3 @@
-functia de miscare snake => citeste parametri =>
-
-parametri: food, vector miscare, perete
-
-food = trec peste food ? length++
-vector de miscare =
-
-unde avansez capu => vector miscare
-unde sterg coada => se modifica length? nu se sterge :
-
-
-spawn snake => pozitie fixa. lungime data => 5 indecsi in linie= SNAKE_ID
-asignez cap / asignez coada in variabile?
-updatez cap functie de vector miscare => BOARD[y][x] = SNAKE_ID
-la spawn ambele variabile au acelas vector
-
-updatez coada => schimb variabila "coada" din SNAKE_ID in null => la fiecare cap adaugat
-cresc un counter. daca counter > length
-miscare => desenez cap, sterg coada.
-
-coada are delay de miscare in nr de frameuri egal cu lengthu snakeului
-
+functie respawnFood() =>
+functie food care detecteaza daca caracteru de food(FOOD_GOOD[index]) se transforma in 0(SNAKE_ID_)
+si respwaneaza food.

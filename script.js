@@ -9,7 +9,6 @@ function createBoardView() {
       let cellElement = document.createElement("div");
       if (cell === null) {
         cellElement.classList.add("cell");
-        cellElement.innerHTML = `${a}/${b}`
       }
       boardDivSelector.appendChild(cellElement);
       b += 1;
@@ -24,6 +23,7 @@ const indexOfFood = generateRandomInRange(FOOD_GOOD.length);
 function updateBoardView() {
   let i = 0;
   const elCells = boardDivSelector.children;
+  // console.log(elCells);
   for (let row of BOARD) {
     for (let cell of row) {
       const elCell = elCells[i];
@@ -43,7 +43,7 @@ function updateBoardView() {
     }
   }
 }
-console.log(BOARD)
+// updateBoardView();
 // setInterval(
 //   updateBoardView, 100
 // )
