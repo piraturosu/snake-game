@@ -21,29 +21,28 @@ createBoardView();
 const indexOfFood = generateRandomInRange(FOOD_GOOD.length);
 
 function updateBoardView() {
-  let i = 0;
-  const elCells = boardDivSelector.children;
-  // console.log(elCells);
+  let i = -1;
+  const cellElements = boardDivSelector.children;
   for (let row of BOARD) {
     for (let cell of row) {
-      const elCell = elCells[i];
+      const cellElement = cellElements[++i];
       // Remove all classes
-      while (elCell.classList.length > 0) {
-        elCell.classList.remove(elCell.classList.item(0));
+      while (cellElement.classList.length > 0) {
+        cellElement.classList.remove(cellElement.classList.item(0));
       }
       if (cell === null) {
-        elCell.classList.add("cell");
+        cellElement.classList.add("cell");
       } else if (cell === SNAKE_ID) {
-        elCell.classList.add("snake");
+        cellElement.classList.add("snake");
       } else {
-        elCell.classList.add("food");
-        elCell.innerHTML = FOOD_GOOD[indexOfFood];
+        cellElement.classList.add("food");
+        cellElement.innerHTML = FOOD_GOOD[indexOfFood];
       }
-      i += 1;
     }
   }
+  console.log(DIRECTION);
 }
+
+setInterval(updateBoardView, 1000);
 // updateBoardView();
-// setInterval(
-//   updateBoardView, 100
-// )
+

@@ -24,14 +24,14 @@ const FOOD_GOOD = [
 ];
 
 const DIRECTIONS = {
-  W: 0,
-  N: 1,
-  E: 2,
-  S: 3,
+  LEFT: 0,
+  UP: 1,
+  RIGHT: 2,
+  DOWN: 3,
 };
+let DIRECTION = DIRECTIONS.LEFT;
 
-const KEYS = [true, false, false, false];
+let FOOD_POSITION;
 
-let CURRENT_DIRECTION;
-
-let currentFoodCoordinates;
+const SNAKE_HEAD = { x: 0, y: 0 };
+const SNAKE_TAIL = { x: 0, y: 0 };

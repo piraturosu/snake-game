@@ -1,4 +1,3 @@
-
 function generateFood() {
   const index = generateRandomInRange(FOOD_GOOD.length);
   let width = generateRandomInRange(BOARD_WIDTH);
@@ -8,9 +7,8 @@ function generateFood() {
     width = generateRandomInRange(BOARD_WIDTH);
   }
   // Spawn food at random position
-  currentFoodCoordinates = [height, width];
+  FOOD_POSITION = [height, width];
   BOARD[height][width] = FOOD_GOOD[index];
-  console.log(currentFoodCoordinates);
 }
 
 function generateMenu() {
@@ -30,46 +28,54 @@ function generateBoard(width, height) {
   }
 }
 
-function createSnake(length) {
+function createSnake(length, x, y) {
   SNAKE_LENGTH = length;
-  snakeArray = [BOARD[x][y], BOARD[x][y]];
-  // for (let i = 0; i !== length; ++i) {
-  // }
-  BOARD[y][x] = SNAKE_ID;
-  // reduce(x);
-  --x;
-  BOARD[y][x + 2] = null;
-  // console.log(x);
+  for (let i = 0; i !== SNAKE_LENGTH; ++i) {
+    BOARD[y][x + i] = SNAKE_ID;
+  }
+  SNAKE_HEAD.x = x;
+  SNAKE_HEAD.y = y;
+  SNAKE_TAIL.x = x + SNAKE_LENGTH;
+  SNAKE_TAIL.y = y;
+  // snakeArray = [BOARD[x][y], BOARD[x][y]];
+  // BOARD[y][x] = SNAKE_ID;
+  // --x;
+  // BOARD[y][x + 2] = null;
 }
 
-function listenToKeyPress() {
-  document.addEventListener("keydown", function (event) {
-    if(event.key === "ArrowUp") {
-      if(CURRENT_DIRECTION === DIRECTIONS.S) return;
-      CURRENT_DIRECTION = DIRECTIONS.N;
-      console.log(CURRENT_DIRECTION);
-    }
-    else if (event.key === "ArrowRight") {
-      if (CURRENT_DIRECTION === DIRECTIONS.W) return;
-      CURRENT_DIRECTION = DIRECTIONS.E;
-      console.log(CURRENT_DIRECTION);
-    }
-    else if (event.key === "ArrowDown") {
-      if (CURRENT_DIRECTION === DIRECTIONS.N) return;
-      CURRENT_DIRECTION = DIRECTIONS.S;
-      console.log(CURRENT_DIRECTION);
-    }
-    else if (event.key === "ArrowLeft") {
-      if (CURRENT_DIRECTION === DIRECTIONS.E) return;
-      CURRENT_DIRECTION = DIRECTIONS.W;
-      console.log(CURRENT_DIRECTION);
-    }
-  });
+function handleKeyDown(event) {
+  if (event.key === "ArrowUp") {
+    if (DIRECTION === DIRECTIONS.DOWN) return;
+    DIRECTION = DIRECTIONS.UP;
+  } else if (event.key === "ArrowRight") {
+    if (DIRECTION === DIRECTIONS.LEFT) return;
+    DIRECTION = DIRECTIONS.RIGHT;
+  } else if (event.key === "ArrowDown") {
+    if (DIRECTION === DIRECTIONS.UP) return;
+    DIRECTION = DIRECTIONS.DOWN;
+  } else if (event.key === "ArrowLeft") {
+    if (DIRECTION === DIRECTIONS.RIGHT) return;
+    DIRECTION = DIRECTIONS.LEFT;
+  }
 }
 
+function updateBoard() {
+  BOARD[SNAKE_TAIL.y][SNAKE_TAIL.x] = null;
 
-listenToKeyPress();
+  SNAKE_TAIL.x = SNAKE_HEAD.x;
+  SNAKE_TAIL.y = SNAKE_HEAD.y;
+
+  if(DIRECTION === DIRECTIONS.LEFT) SNAKE_HEAD.x -= 1;
+  else if(DIRECTION === DIRECTIONS.RIGHT) SNAKE_HEAD.x += 1;
+  else if(DIRECTION === DIRECTIONS.DOWN) SNAKE_HEAD.y += 1;
+  else if(DIRECTION === DIRECTIONS.UP) SNAKE_HEAD.y -= 1;
+
+  BOARD[SNAKE_HEAD.y][SNAKE_HEAD.x] = SNAKE_ID;
+
+}
+
 generateBoard(20, 10);
+createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
 generateFood();
-// console.log(BOARD)
-// createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
+document.addEventListener("keydown", handleKeyDown);
+setInterval(updateBoard, 1000);
