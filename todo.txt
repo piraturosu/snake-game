@@ -1,3 +1,8 @@
 functie respawnFood() =>
 functie food care detecteaza daca caracteru de food(FOOD_GOOD[index]) se transforma in 0(SNAKE_ID_)
 si respwaneaza food.
+
+
+
+1. update state: facem calculul noului cap in functie de directie si se modifica SNAKE_ARRAY
+2. desenam capul

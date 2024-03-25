@@ -33,5 +33,9 @@ let DIRECTION = DIRECTIONS.LEFT;
 
 let FOOD_POSITION;
 
-const SNAKE_HEAD = { x: 0, y: 0 };
-const SNAKE_TAIL = { x: 0, y: 0 };
+const SNAKE_ARRAY = [];
+
+let SNAKE_HEAD;
+let SNAKE_TAIL;
+
+const DIRECTIONAL_CHANGES = [];

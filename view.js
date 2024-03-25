@@ -40,9 +40,8 @@ function updateBoardView() {
       }
     }
   }
-  console.log(DIRECTION);
+  // console.log(DIRECTION);
 }
 
 setInterval(updateBoardView, 1000);
 // updateBoardView();
-
