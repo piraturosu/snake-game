@@ -1,5 +1,11 @@
 const boardDivSelector = document.getElementById("board");
 
+document.addEventListener("keydown", handleKeyDown);
+
+function handleKeyDown(event) {
+  setDirection(event.key);
+}
+
 function createBoardView() {
   let a = 0;
   for (let row of BOARD) {
@@ -16,7 +22,6 @@ function createBoardView() {
     a += 1;
   }
 }
-createBoardView();
 
 const indexOfFood = generateRandomInRange(FOOD_GOOD.length);
 
@@ -40,8 +45,7 @@ function updateBoardView() {
       }
     }
   }
-  // console.log(DIRECTION);
 }
 
-setInterval(updateBoardView, 1000);
-// updateBoardView();
+createBoardView();
+setInterval(updateBoardView, 300);

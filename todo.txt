@@ -3,6 +3,6 @@ functie food care detecteaza daca caracteru de food(FOOD_GOOD[index]) se transfo
 si respwaneaza food.
 
 
-
-1. update state: facem calculul noului cap in functie de directie si se modifica SNAKE_ARRAY
-2. desenam capul
+1. problema directiei - primeste de la tastatura mai multe directii inainte sa faca modificarea pe view si
+primeste mai multe directii in acelasi timp si fenteaza conditia
+2. moare cand se loveste de trup sau de perete

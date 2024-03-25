@@ -11,10 +11,6 @@ function generateFood() {
   BOARD[height][width] = FOOD_GOOD[index];
 }
 
-function generateMenu() {
-  difficultyMenu = document.createElement("div");
-}
-
 function generateBoard(width, height) {
   BOARD_WIDTH = width;
   BOARD_HEIGHT = height;
@@ -32,40 +28,33 @@ function createSnake(length, x, y) {
   SNAKE_LENGTH = length;
 
   for (let i = 0; i !== SNAKE_LENGTH; ++i) {
-    BOARD[y][x] = SNAKE_ID;
+    BOARD[y][x + i] = SNAKE_ID;
     SNAKE_ARRAY.push([y, x + i]);
   }
-  SNAKE_HEAD = SNAKE_ARRAY[0];
-  SNAKE_TAIL = SNAKE_ARRAY[SNAKE_ARRAY.length - 1];
-  // SNAKE_HEAD.x = x;
-  // SNAKE_HEAD.y = y;
 }
 
-function handleKeyDown(event) {
-  if (event.key === "ArrowUp") {
+function setDirection(keyString) {
+  if (keyString === "ArrowUp") {
     if (DIRECTION === DIRECTIONS.DOWN) return;
     DIRECTION = DIRECTIONS.UP;
-  } else if (event.key === "ArrowRight") {
+  } else if (keyString === "ArrowRight") {
     if (DIRECTION === DIRECTIONS.LEFT) return;
     DIRECTION = DIRECTIONS.RIGHT;
-  } else if (event.key === "ArrowDown") {
+  } else if (keyString === "ArrowDown") {
     if (DIRECTION === DIRECTIONS.UP) return;
     DIRECTION = DIRECTIONS.DOWN;
-  } else if (event.key === "ArrowLeft") {
+  } else if (keyString === "ArrowLeft") {
     if (DIRECTION === DIRECTIONS.RIGHT) return;
     DIRECTION = DIRECTIONS.LEFT;
   }
-  DIRECTIONAL_CHANGES.push({
-    direction: DIRECTION,
-  });
 }
-function updateBoard() {
-  BOARD[SNAKE_TAIL[0]][SNAKE_TAIL[1]] = null;
-  SNAKE_TAIL = SNAKE_ARRAY[SNAKE_ARRAY.length - 1];
-  BOARD[SNAKE_TAIL[0]][SNAKE_TAIL[1]] = SNAKE_ID;
+
+function updateSnake() {
+  const SNAKE_TAIL = SNAKE_ARRAY.pop();
+  const SNAKE_HEAD = [...SNAKE_ARRAY[0]];
+
   if (DIRECTION === DIRECTIONS.LEFT) {
     SNAKE_HEAD[1] -= 1;
-    console.log("snake array = ", SNAKE_ARRAY, "tail = ", SNAKE_TAIL);
   } else if (DIRECTION === DIRECTIONS.UP) {
     SNAKE_HEAD[0] -= 1;
   } else if (DIRECTION === DIRECTIONS.RIGHT) {
@@ -73,12 +62,13 @@ function updateBoard() {
   } else if (DIRECTION === DIRECTIONS.DOWN) {
     SNAKE_HEAD[0] += 1;
   }
+  SNAKE_ARRAY.unshift(SNAKE_HEAD);
+
+  BOARD[SNAKE_TAIL[0]][SNAKE_TAIL[1]] = null;
   BOARD[SNAKE_HEAD[0]][SNAKE_HEAD[1]] = SNAKE_ID;
 }
 
 generateBoard(20, 10);
-createSnake(2, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
+createSnake(4, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
 generateFood();
-document.addEventListener("keydown", handleKeyDown);
-// updateBoard();
-setInterval(updateBoard, 1000);
+setInterval(updateSnake, 1000);
