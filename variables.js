@@ -2,10 +2,10 @@ const BOARD = [];
 let BOARD_WIDTH;
 let BOARD_HEIGHT;
 
-const SNAKE_ID = 0;
+const SNAKE_ARRAY = [];
+const SNAKE_BODY = 0;
+const SNAKE_SPEED = 100;
 let SNAKE_LENGTH;
-
-let difficultyMenu;
 
 // 🐛 🐞 🦋 🐁 🐀 🐿 🍄 🐓 🐇 🐤 🐣
 // 👟 🥾 🧦 🌵 🦔 🦂
@@ -32,5 +32,3 @@ const DIRECTIONS = {
 let DIRECTION = DIRECTIONS.LEFT;
 
 let FOOD_POSITION;
-
-const SNAKE_ARRAY = [];

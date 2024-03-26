@@ -3,7 +3,7 @@ function generateFood() {
   let width = generateRandomInRange(BOARD_WIDTH);
   const height = generateRandomInRange(BOARD_HEIGHT);
   // Detect snake body
-  while (BOARD[height][width] === SNAKE_ID) {
+  while (BOARD[height][width] === SNAKE_BODY) {
     width = generateRandomInRange(BOARD_WIDTH);
   }
   // Spawn food at random position
@@ -28,12 +28,15 @@ function createSnake(length, x, y) {
   SNAKE_LENGTH = length;
 
   for (let i = 0; i !== SNAKE_LENGTH; ++i) {
-    BOARD[y][x + i] = SNAKE_ID;
+    BOARD[y][x + i] = SNAKE_BODY;
     SNAKE_ARRAY.push([y, x + i]);
   }
 }
+let frameReady = false;
 
 function setDirection(keyString) {
+  if (!frameReady) return;
+
   if (keyString === "ArrowUp") {
     if (DIRECTION === DIRECTIONS.DOWN) return;
     DIRECTION = DIRECTIONS.UP;
@@ -47,8 +50,9 @@ function setDirection(keyString) {
     if (DIRECTION === DIRECTIONS.RIGHT) return;
     DIRECTION = DIRECTIONS.LEFT;
   }
-}
 
+  frameReady = false;
+}
 function updateSnake() {
   const SNAKE_TAIL = SNAKE_ARRAY.pop();
   const SNAKE_HEAD = [...SNAKE_ARRAY[0]];
@@ -65,10 +69,11 @@ function updateSnake() {
   SNAKE_ARRAY.unshift(SNAKE_HEAD);
 
   BOARD[SNAKE_TAIL[0]][SNAKE_TAIL[1]] = null;
-  BOARD[SNAKE_HEAD[0]][SNAKE_HEAD[1]] = SNAKE_ID;
+  BOARD[SNAKE_HEAD[0]][SNAKE_HEAD[1]] = SNAKE_BODY;
+  frameReady = true;
 }
 
 generateBoard(20, 10);
 createSnake(4, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
 generateFood();
-setInterval(updateSnake, 500);
+setInterval(updateSnake, SNAKE_SPEED);

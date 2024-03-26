@@ -1,13 +1,9 @@
 const boardDivSelector = document.getElementById("board");
 
-let debounceTimerKeyDown;
-
 document.addEventListener("keydown", handleKeyDown);
 
 function handleKeyDown(event) {
-  clearTimeout(debounceTimerKeyDown);
-
-  debounceTimerKeyDown = setTimeout(() => setDirection(event.key), 200);
+  setDirection(event.key);
 }
 
 function createBoardView() {
@@ -41,7 +37,7 @@ function updateBoardView() {
       }
       if (cell === null) {
         cellElement.classList.add("cell");
-      } else if (cell === SNAKE_ID) {
+      } else if (cell === SNAKE_BODY) {
         cellElement.classList.add("snake");
       } else {
         cellElement.classList.add("food");
@@ -52,4 +48,4 @@ function updateBoardView() {
 }
 
 createBoardView();
-setInterval(updateBoardView, 500);
+setInterval(updateBoardView, SNAKE_SPEED);
