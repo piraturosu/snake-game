@@ -32,7 +32,6 @@ function createSnake(length, x, y) {
     SNAKE_ARRAY.push([y, x + i]);
   }
 }
-let frameReady = false;
 
 function setDirection(keyString) {
   if (!frameReady) return;
@@ -53,10 +52,11 @@ function setDirection(keyString) {
 
   frameReady = false;
 }
+let frameReady = false;
+let snakeMoved;
 function updateSnake() {
   const SNAKE_TAIL = SNAKE_ARRAY.pop();
   const SNAKE_HEAD = [...SNAKE_ARRAY[0]];
-
   if (DIRECTION === DIRECTIONS.LEFT) {
     SNAKE_HEAD[1] -= 1;
   } else if (DIRECTION === DIRECTIONS.UP) {
@@ -68,8 +68,23 @@ function updateSnake() {
   }
   SNAKE_ARRAY.unshift(SNAKE_HEAD);
 
+  if (SNAKE_HEAD[1] === -1) {
+    alert("Died la stanga");
+  } else if (SNAKE_HEAD[0] === 0) {
+    alert("Died in sus");
+  } else if (SNAKE_HEAD[0] === BOARD_HEIGHT) {
+    alert("Died in jos");
+  } else if (SNAKE_HEAD[1] === BOARD_WIDTH) {
+    alert("Died la dreapta");
+  }
+  // for(let i = 0; i !== SNAKE_ARRAY.length; ++i){
+  //   if(SNAKE_HEAD[0] === SNAKE_ARRAY[i]){
+  //     alert("Died in el");
+  //   }
+
   BOARD[SNAKE_TAIL[0]][SNAKE_TAIL[1]] = null;
   BOARD[SNAKE_HEAD[0]][SNAKE_HEAD[1]] = SNAKE_BODY;
+
   frameReady = true;
 }
 
