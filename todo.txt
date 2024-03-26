@@ -4,5 +4,5 @@ si respwaneaza food.
 
 
 1. problema directiei - primeste de la tastatura mai multe directii inainte sa faca modificarea pe view si
-primeste mai multe directii in acelasi timp si fenteaza conditia
+si fenteaza conditia
 2. moare cand se loveste de trup sau de perete

@@ -1,9 +1,13 @@
 const boardDivSelector = document.getElementById("board");
 
+let debounceTimerKeyDown;
+
 document.addEventListener("keydown", handleKeyDown);
 
 function handleKeyDown(event) {
-  setDirection(event.key);
+  clearTimeout(debounceTimerKeyDown);
+
+  debounceTimerKeyDown = setTimeout(() => setDirection(event.key), 200);
 }
 
 function createBoardView() {
@@ -48,4 +52,4 @@ function updateBoardView() {
 }
 
 createBoardView();
-setInterval(updateBoardView, 300);
+setInterval(updateBoardView, 500);
