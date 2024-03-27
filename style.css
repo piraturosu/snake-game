@@ -15,7 +15,7 @@ body {
   position: fixed;
   top: 0;
   left: 50vw;
-  transform: translate(-50%, 20vh);
+  transform: translate(-50%, 10vh);
 
   display: flex;
 
@@ -36,6 +36,18 @@ body {
   display: grid;
 }
 
+#bottomMenu {
+  position: fixed;
+  bottom: 0vh;
+  left: 50vw;
+  transform: translate(-50%, -14vh);
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 2vh;
+}
+
 .cell {
   width: 4vh;
   height: 4vh;
@@ -46,7 +58,8 @@ body {
 
   outline: 0.2vh solid black;
 
-  background-color: #fcfcfc;
+  background-color: #fffedc;
+
   /* color: #fac710; */
 }
 
@@ -57,13 +70,9 @@ body {
 }
 
 .food {
-  /* align-items: center;
-  justify-items: center; */
-
   font-size: 2.7vh;
   text-align: center;
   text-justify: center;
-  /* line-height: 0; */
 
   outline: 0.2vh solid black;
 

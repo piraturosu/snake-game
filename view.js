@@ -1,5 +1,10 @@
 const boardUIElement = document.getElementById("board");
-console.log(boardUIElement);
+const bottomInfoText = document.getElementById("bottomMenu");
+const scoreSpan = document.getElementById("scoreSpan");
+const recordSpan = document.getElementById("recordSpan");
+
+bottomInfoText.style.width = `${BOARD_WIDTH * 4}vh`;
+
 document.addEventListener("keydown", handleKeyDown);
 
 function handleKeyDown(event) {
@@ -7,7 +12,7 @@ function handleKeyDown(event) {
 }
 
 function createBoardView() {
-  boardUIElement.style.gridTemplateColumns = `repeat(${BOARD_WIDTH}, 1fr)`
+  boardUIElement.style.gridTemplateColumns = `repeat(${BOARD_WIDTH}, 1fr)`;
   boardUIElement.style.gridTemplateRows = `repeat(${BOARD_HEIGHT}, 1fr)`;
   for (let row of BOARD) {
     for (let cell of row) {
@@ -18,6 +23,11 @@ function createBoardView() {
       boardUIElement.appendChild(cellElement);
     }
   }
+}
+
+function updateScoreView() {
+  scoreSpan.innerText = currentScore;
+  recordSpan.innerText = recordScore;
 }
 
 function updateBoardView() {
@@ -41,7 +51,12 @@ function updateBoardView() {
       }
     }
   }
+
+  if (justAteState) {
+    updateScoreView();
+  }
 }
 
+updateScoreView();
 createBoardView();
 const viewInterval = setInterval(updateBoardView, SNAKE_SPEED);

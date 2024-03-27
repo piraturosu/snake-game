@@ -4,7 +4,7 @@ let BOARD_HEIGHT;
 
 const SNAKE_ARRAY = [];
 const SNAKE_BODY = 0;
-const SNAKE_SPEED = 200;
+const SNAKE_SPEED = 100;
 let SNAKE_LENGTH;
 
 // 🐛 🐞 🦋 🐁 🐀 🐿 🍄 🐓 🐇 🐤 🐣
@@ -22,3 +22,7 @@ let DIRECTION = DIRECTIONS.LEFT;
 
 let FOOD_POSITION;
 let indexOfFood;
+
+let currentScore = 0;
+let recordScore = 0;
+if(currentScore > recordScore){recordScore = currentScore};

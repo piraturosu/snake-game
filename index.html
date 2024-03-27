@@ -14,11 +14,19 @@
     />
   </head>
   <body>
-    <div id="topMenu" style="position: fixed">
+    <div id="topMenu">
       <h1>classic snake</h1>
     </div>
     <div id="board"></div>
-    <div class="bottomMenu"></div>
+    <div id="bottomMenu">
+      <div class="infoScore">
+        <p>SCORE: <span id="scoreSpan"></span></p>
+      </div>
+      <div class="respawnButton"></div>
+      <div class="infoScore">
+        <p>RECORD: <span id="recordSpan"></span></p>
+      </div>
+    </div>
     <script src="variables.js"></script>
     <script src="utils.js"></script>
     <script src="state.js"></script>

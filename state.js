@@ -65,6 +65,16 @@ function clearIntervals() {
   clearInterval(viewInterval);
 }
 
+function updateScoreState() {
+  currentScore += 5;
+  if (currentScore > recordScore) {
+    recordScore = currentScore;
+  }
+  justAteState = true;
+}
+
+let justAteState = false;
+
 function updateBoardState() {
   const SNAKE_TAIL = SNAKE_ARRAY.pop();
   const SNAKE_HEAD = [...SNAKE_ARRAY[0]];
@@ -105,9 +115,11 @@ function updateBoardState() {
     BOARD[SNAKE_HEAD[0]][SNAKE_HEAD[1]] = SNAKE_BODY;
     deleteFood();
     generateFood();
+    updateScoreState();
   } else {
     BOARD[SNAKE_TAIL[0]][SNAKE_TAIL[1]] = null;
     BOARD[SNAKE_HEAD[0]][SNAKE_HEAD[1]] = SNAKE_BODY;
+    justAteState = false;
   }
 
   frameReady = true;
