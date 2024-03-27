@@ -33,8 +33,6 @@ body {
   transform: translate(-50%, -50%);
 
   display: grid;
-  grid-template-columns: repeat(20, 1fr);
-  grid-template-rows: repeat(10, 1fr);
 }
 
 .cell {

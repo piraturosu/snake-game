@@ -1,8 +1,11 @@
-functie respawnFood() =>
-functie food care detecteaza daca caracteru de food(FOOD_GOOD[index]) se transforma in 0(SNAKE_ID_)
-si respwaneaza food.
-
-
-1. problema directiei - primeste de la tastatura mai multe directii inainte sa faca modificarea pe view si
-si fenteaza conditia
-2. moare cand se loveste de trup sau de perete
+css food
+scor actual + record
+functionalitate game over: reset scor actual / verificat record, afisat buton restart
+meniu start
+ - 3 nivele de viteza(slow, normal, fast)
+ - selectie cu mouse
+ - selectie cu taste sus/jos + enter
+ - efect indicator selectie curenta(taste + mouseover)
+ - se afiseaza la load + fiecare reset dupa game over
+functionalitate dificultati
+countdown start

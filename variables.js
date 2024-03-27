@@ -9,6 +9,7 @@ let SNAKE_LENGTH;
 
 // 🐛 🐞 🦋 🐁 🐀 🐿 🍄 🐓 🐇 🐤 🐣
 // 👟 🥾 🧦 🌵 🦔 🦂
+// 🐍
 const FOOD_GOOD = [
   "🐛",
   "🐞",
@@ -32,3 +33,4 @@ const DIRECTIONS = {
 let DIRECTION = DIRECTIONS.LEFT;
 
 let FOOD_POSITION;
+let indexOfFood;

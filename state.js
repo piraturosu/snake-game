@@ -1,21 +1,20 @@
 function generateFood() {
-  const index = generateRandomInRange(FOOD_GOOD.length);
+  indexOfFood = generateRandomInRange(FOOD_GOOD.length);
   let width = generateRandomInRange(BOARD_WIDTH);
-  const height = generateRandomInRange(BOARD_HEIGHT);
+  let height = generateRandomInRange(BOARD_HEIGHT);
   // Detect snake body
   while (BOARD[height][width] === SNAKE_BODY) {
     width = generateRandomInRange(BOARD_WIDTH);
   }
   // Spawn food at random position
   FOOD_POSITION = [height, width];
-  BOARD[height][width] = FOOD_GOOD[index];
+  BOARD[height][width] = FOOD_GOOD[indexOfFood];
 }
 
 function deleteFood() {
   let y = FOOD_POSITION[0];
   let x = FOOD_POSITION[1];
-  BOARD[y][x] = 0;
-
+  BOARD[y][x] = SNAKE_BODY;
 }
 
 function generateBoard(width, height) {
@@ -60,9 +59,8 @@ function setDirection(keyString) {
   frameReady = false;
 }
 let frameReady = false;
-let ateFood = false;
-let snakeMoved;
-function updateSnake() {
+
+function updateBoardState() {
   const SNAKE_TAIL = SNAKE_ARRAY.pop();
   const SNAKE_HEAD = [...SNAKE_ARRAY[0]];
   if (DIRECTION === DIRECTIONS.LEFT) {
@@ -77,13 +75,17 @@ function updateSnake() {
   SNAKE_ARRAY.unshift(SNAKE_HEAD);
 
   if (SNAKE_HEAD[1] === -1) {
-    alert("Died la stanga");
+    clearInterval(stateInterval);
+    clearInterval(viewInterval);
   } else if (SNAKE_HEAD[0] === -1) {
-    alert("Died in sus");
+    clearInterval(stateInterval);
+    clearInterval(viewInterval);
   } else if (SNAKE_HEAD[0] === BOARD_HEIGHT) {
-    alert("Died in jos");
+    clearInterval(stateInterval);
+    clearInterval(viewInterval);
   } else if (SNAKE_HEAD[1] === BOARD_WIDTH) {
-    alert("Died la dreapta");
+    clearInterval(stateInterval);
+    clearInterval(viewInterval);
   }
 
   for (let i = 1; i !== SNAKE_ARRAY.length; ++i) {
@@ -91,7 +93,8 @@ function updateSnake() {
       SNAKE_HEAD[0] === SNAKE_ARRAY[i][0] &&
       SNAKE_HEAD[1] === SNAKE_ARRAY[i][1]
     ) {
-      alert("Died in el");
+      clearInterval(stateInterval);
+      clearInterval(viewInterval);
     }
   }
 
@@ -111,7 +114,8 @@ function updateSnake() {
   frameReady = true;
 }
 
-generateBoard(20, 10);
+generateBoard(30, 15);
 createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
 generateFood();
-setInterval(updateSnake, SNAKE_SPEED);
+
+const stateInterval = setInterval(updateBoardState, SNAKE_SPEED);
