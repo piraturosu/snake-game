@@ -39,7 +39,9 @@ function updateBoardView() {
       cellElement.innerHTML = "";
       // Remove all classes
       while (cellElement.classList.length > 0) {
-        cellElement.classList.remove(cellElement.classList.item(0));
+        const className = cellElement.classList.item(0);
+        if (className === "food") cellElement.children.length = 0;
+        cellElement.classList.remove(className);
       }
       if (cell === null) {
         cellElement.classList.add("cell");
@@ -47,7 +49,9 @@ function updateBoardView() {
         cellElement.classList.add("snake");
       } else {
         cellElement.classList.add("food");
-        cellElement.innerHTML = FOOD_GOOD[indexOfFood];
+        const p = document.createElement("p");
+        p.innerText = FOOD_GOOD[indexOfFood];
+        cellElement.appendChild(p);
       }
     }
   }

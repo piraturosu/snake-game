@@ -28,7 +28,7 @@ body {
 
 #board {
   position: fixed;
-  /* min-width: 700px; */
+
   top: 50vh;
   left: 50vw;
   transform: translate(-50%, -50%);
@@ -70,11 +70,24 @@ body {
 }
 
 .food {
-  font-size: 2.7vh;
-  text-align: center;
-  text-justify: center;
+  width: 4vh;
+  height: 4vh;
+  min-height: 2vh;
+  min-width: 2vh;
+  max-width: 4vw;
+  max-height: 4vw;
+
+  
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   outline: 0.2vh solid black;
 
   background-color: #fac710;
+}
+
+.food p {
+  font-size: 2.7vh;
 }
