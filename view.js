@@ -1,5 +1,5 @@
 const boardDivSelector = document.getElementById("board");
-
+console.log(boardDivSelector);
 document.addEventListener("keydown", handleKeyDown);
 
 function handleKeyDown(event) {

@@ -4,7 +4,7 @@ let BOARD_HEIGHT;
 
 const SNAKE_ARRAY = [];
 const SNAKE_BODY = 0;
-const SNAKE_SPEED = 500;
+const SNAKE_SPEED = 300;
 let SNAKE_LENGTH;
 
 // 🐛 🐞 🦋 🐁 🐀 🐿 🍄 🐓 🐇 🐤 🐣
