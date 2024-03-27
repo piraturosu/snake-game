@@ -28,6 +28,7 @@ body {
 
 #board {
   position: fixed;
+  /* min-width: 700px; */
   top: 50vh;
   left: 50vw;
   transform: translate(-50%, -50%);
@@ -36,16 +37,16 @@ body {
 }
 
 .cell {
-  width: 4.5vh;
-  height: 4.5vh;
-  min-height: 3vh;
-  min-width: 3vh;
-  max-width: 4.5vw;
-  max-height: 4.5vw;
+  width: 4vh;
+  height: 4vh;
+  min-height: 2vh;
+  min-width: 2vh;
+  max-width: 4vw;
+  max-height: 4vw;
 
   outline: 0.2vh solid black;
 
-  background-color: #fac710;
+  background-color: #fcfcfc;
   /* color: #fac710; */
 }
 
@@ -56,11 +57,13 @@ body {
 }
 
 .food {
-  align-items: center;
-  justify-items: center;
+  /* align-items: center;
+  justify-items: center; */
 
-  font-size: 2vh;
-  line-height: 2vh;
+  font-size: 2.7vh;
+  text-align: center;
+  text-justify: center;
+  /* line-height: 0; */
 
   outline: 0.2vh solid black;
 

@@ -4,25 +4,13 @@ let BOARD_HEIGHT;
 
 const SNAKE_ARRAY = [];
 const SNAKE_BODY = 0;
-const SNAKE_SPEED = 300;
+const SNAKE_SPEED = 200;
 let SNAKE_LENGTH;
 
 // 🐛 🐞 🦋 🐁 🐀 🐿 🍄 🐓 🐇 🐤 🐣
 // 👟 🥾 🧦 🌵 🦔 🦂
 // 🐍
-const FOOD_GOOD = [
-  "🐛",
-  "🐞",
-  "🦋",
-  "🐁",
-  "🐀",
-  "🐿",
-  "🍄",
-  "🐓",
-  "🐇",
-  "🐤",
-  "🐣",
-];
+const FOOD_GOOD = ["🐛", "🐞", "🦋", "🐁", "🐀", "🍄", "🐓", "🐇", "🐤", "🐣"];
 
 const DIRECTIONS = {
   LEFT: 0,

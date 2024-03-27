@@ -1,11 +1,15 @@
-css food
+//css food
 scor actual + record
+
 functionalitate game over: reset scor actual / verificat record, afisat buton restart
+
 meniu start
  - 3 nivele de viteza(slow, normal, fast)
  - selectie cu mouse
  - selectie cu taste sus/jos + enter
  - efect indicator selectie curenta(taste + mouseover)
  - se afiseaza la load + fiecare reset dupa game over
+
 functionalitate dificultati
+
 countdown start

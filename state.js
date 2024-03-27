@@ -60,6 +60,11 @@ function setDirection(keyString) {
 }
 let frameReady = false;
 
+function clearIntervals() {
+  clearInterval(stateInterval);
+  clearInterval(viewInterval);
+}
+
 function updateBoardState() {
   const SNAKE_TAIL = SNAKE_ARRAY.pop();
   const SNAKE_HEAD = [...SNAKE_ARRAY[0]];
@@ -74,18 +79,13 @@ function updateBoardState() {
   }
   SNAKE_ARRAY.unshift(SNAKE_HEAD);
 
-  if (SNAKE_HEAD[1] === -1) {
-    clearInterval(stateInterval);
-    clearInterval(viewInterval);
-  } else if (SNAKE_HEAD[0] === -1) {
-    clearInterval(stateInterval);
-    clearInterval(viewInterval);
-  } else if (SNAKE_HEAD[0] === BOARD_HEIGHT) {
-    clearInterval(stateInterval);
-    clearInterval(viewInterval);
-  } else if (SNAKE_HEAD[1] === BOARD_WIDTH) {
-    clearInterval(stateInterval);
-    clearInterval(viewInterval);
+  if (
+    SNAKE_HEAD[1] === -1 ||
+    SNAKE_HEAD[0] === -1 ||
+    SNAKE_HEAD[0] === BOARD_HEIGHT ||
+    SNAKE_HEAD[1] === BOARD_WIDTH
+  ) {
+    clearIntervals();
   }
 
   for (let i = 1; i !== SNAKE_ARRAY.length; ++i) {
@@ -93,8 +93,7 @@ function updateBoardState() {
       SNAKE_HEAD[0] === SNAKE_ARRAY[i][0] &&
       SNAKE_HEAD[1] === SNAKE_ARRAY[i][1]
     ) {
-      clearInterval(stateInterval);
-      clearInterval(viewInterval);
+      clearIntervals();
     }
   }
 
