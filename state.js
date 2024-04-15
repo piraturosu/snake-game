@@ -67,8 +67,10 @@ function clearIntervals() {
 
 function updateScoreState() {
   currentScore += 5;
-  if (currentScore > recordScore) {
-    recordScore = currentScore;
+  storedRecord = getNumberFromLocalStorage(key);
+  if (currentScore >= storedRecord) {
+    storeRecordScore(key, currentScore);
+    storedRecord = getNumberFromLocalStorage(key);
   }
   justAteState = true;
 }
@@ -124,7 +126,6 @@ function updateBoardState() {
 
   frameReady = true;
 }
-
 generateBoard(30, 15);
 createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
 generateFood();

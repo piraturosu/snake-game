@@ -27,7 +27,7 @@ function createBoardView() {
 
 function updateScoreView() {
   scoreSpan.innerText = currentScore;
-  recordSpan.innerText = recordScore;
+  recordSpan.innerText = storedRecord;
 }
 
 function updateBoardView() {

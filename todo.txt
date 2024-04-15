@@ -13,3 +13,5 @@ meniu start
 functionalitate dificultati
 
 countdown start
+
+local storage: la fiecare schimbare de scor se verifica actual > record. se updateaza record. se verifica record > record storat.se storeaza in local storage

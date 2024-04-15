@@ -10,7 +10,7 @@ let SNAKE_LENGTH;
 // 🐛 🐞 🦋 🐁 🐀 🐿 🍄 🐓 🐇 🐤 🐣
 // 👟 🥾 🧦 🌵 🦔 🦂 🧦 🌵 🦔 🦂
 // 🐍
-const FOOD_GOOD = ["🐛", "🐞", "🦋", "🐁", "🐀", "🍄", "🐓", "🐇", "🐤", "🐣"];
+const FOOD_GOOD = ["🐛", "🐞", "🐁", "🐀", "🍄", "🐓", "🐇", "🐤", "🐣"];
 
 const DIRECTIONS = {
   LEFT: 0,
@@ -24,5 +24,4 @@ let FOOD_POSITION;
 let indexOfFood;
 
 let currentScore = 0;
-let recordScore = 0;
-if(currentScore > recordScore){recordScore = currentScore};
+let localRecord = 0;
