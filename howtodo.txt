@@ -1,0 +1,5 @@
+meniu start:
+1. hardcodat in html =>
+div cu lista. default visible. la selectie dificultate devine hidden =>
+call functie care modifica viteza functie de selectie si calluieste
+toate functiile necesare jocului

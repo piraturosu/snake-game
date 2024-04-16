@@ -11,6 +11,13 @@ body {
   font-style: normal;
 }
 
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 #topMenu {
   position: fixed;
   top: 0;
@@ -42,10 +49,46 @@ body {
   left: 50vw;
   transform: translate(-50%, -14vh);
 
+  visibility: hidden;
   display: flex;
   justify-content: space-between;
 
   font-size: 2vh;
+}
+
+#startMenu {
+  width: 50vh;
+  height: 30vh;
+
+  position: fixed;
+  bottom: 22vh;
+  left: 50vw;
+  transform: translate(-50%, -14vh);
+
+  display: flex;
+
+  background-color: rgba(39, 189, 245, 0.5);
+}
+
+#startMenu ul {
+  width: 50vh;
+  height: 30vh;
+
+  position: fixed;
+  bottom: 0vh;
+  left: 0vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  line-height: 2;
+  font-size: 3.3vh;
+}
+
+#slow {
+  background-color: #fac710;
 }
 
 .cell {
@@ -76,8 +119,6 @@ body {
   min-width: 2vh;
   max-width: 4vw;
   max-height: 4vw;
-
-  
 
   display: flex;
   justify-content: center;

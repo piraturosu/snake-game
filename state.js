@@ -127,7 +127,7 @@ function updateBoardState() {
   frameReady = true;
 }
 generateBoard(30, 15);
-createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
-generateFood();
+// createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
+// generateFood();
 
-const stateInterval = setInterval(updateBoardState, SNAKE_SPEED);
+// const stateInterval = setInterval(updateBoardState, SNAKE_SPEED);
