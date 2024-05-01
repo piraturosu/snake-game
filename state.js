@@ -138,11 +138,29 @@ let viewInterval;
 function startGame(SNAKE_SPEED) {
   startMenu.style.visibility = "hidden";
 
-  if (SNAKE_SPEED == slow) {
+  if (SNAKE_SPEED == SLOW) {
     console.log("start on slow");
     createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
     generateFood();
-    stateInterval = setInterval(() => {updateBoardState()}, slow);
-    viewInterval = setInterval(updateBoardView, slow);
+    stateInterval = setInterval(() => {
+      updateBoardState();
+    }, SLOW);
+    viewInterval = setInterval(updateBoardView, SLOW);
+  } else if (SNAKE_SPEED == NORMAL) {
+    console.log("start on normal");
+    createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
+    generateFood();
+    stateInterval = setInterval(() => {
+      updateBoardState();
+    }, NORMAL);
+    viewInterval = setInterval(updateBoardView, NORMAL);
+  } else if (SNAKE_SPEED == FAST) {
+    console.log("start on fast");
+    createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
+    generateFood();
+    stateInterval = setInterval(() => {
+      updateBoardState();
+    }, FAST);
+    viewInterval = setInterval(updateBoardView, FAST);
   }
 }

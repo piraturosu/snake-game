@@ -68,4 +68,15 @@ function updateBoardView() {
 createBoardView();
 
 slowSelector.classList.add("selected");
-slowSelector.addEventListener("click",() => {startGame(slow)});
+normalSelector.classList.add("selected");
+fastSelector.classList.add("selected");
+
+slowSelector.addEventListener("click", () => {
+  startGame(SLOW);
+});
+normalSelector.addEventListener("click", () => {
+  startGame(NORMAL);
+});
+fastSelector.addEventListener("click", () => {
+  startGame(FAST);
+});
