@@ -67,7 +67,7 @@ ol {
 
   display: flex;
 
-  background-color: rgba(39, 189, 245, 0.5);
+  background-color: rgba(39, 189, 245, 0.8);
 }
 
 #startMenu ul {
@@ -85,9 +85,14 @@ ol {
 
   line-height: 2;
   font-size: 3.3vh;
+  color: white;
 }
 
-#slow {
+#startMenu ul li {
+  padding: 0 10px;
+}
+
+.selected {
   background-color: #fac710;
 }
 
@@ -99,7 +104,7 @@ ol {
   max-width: 4vw;
   max-height: 4vw;
 
-  outline: 0.2vh solid black;
+  outline: 0.1vh solid black;
 
   background-color: #fffedc;
 
@@ -107,7 +112,7 @@ ol {
 }
 
 .snake {
-  outline: 0.2vh solid black;
+  outline: 0.1vh solid black;
 
   background-color: blueviolet;
 }
@@ -124,7 +129,7 @@ ol {
   justify-content: center;
   align-items: center;
 
-  outline: 0.2vh solid black;
+  outline: 0.1vh solid black;
 
   background-color: #fac710;
 }

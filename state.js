@@ -98,6 +98,9 @@ function updateBoardState() {
     SNAKE_HEAD[1] === BOARD_WIDTH
   ) {
     clearIntervals();
+    generateBoard(30, 15);
+    startMenu.style.visibility = "visible";
+    deleteFood();
   }
 
   for (let i = 1; i !== SNAKE_ARRAY.length; ++i) {
@@ -129,5 +132,17 @@ function updateBoardState() {
 generateBoard(30, 15);
 // createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
 // generateFood();
-
+let stateInterval;
+let viewInterval;
 // const stateInterval = setInterval(updateBoardState, SNAKE_SPEED);
+function startGame(SNAKE_SPEED) {
+  startMenu.style.visibility = "hidden";
+
+  if (SNAKE_SPEED == slow) {
+    console.log("start on slow");
+    createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
+    generateFood();
+    stateInterval = setInterval(() => {updateBoardState()}, slow);
+    viewInterval = setInterval(updateBoardView, slow);
+  }
+}

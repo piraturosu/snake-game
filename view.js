@@ -2,6 +2,10 @@ const boardUIElement = document.getElementById("board");
 const bottomInfoText = document.getElementById("bottomMenu");
 const scoreSpan = document.getElementById("scoreSpan");
 const recordSpan = document.getElementById("recordSpan");
+const slowSelector = document.getElementById("slow");
+const normalSelector = document.getElementById("normal");
+const fastSelector = document.getElementById("fast");
+const startMenu = document.getElementById("startMenu");
 
 bottomInfoText.style.width = `${BOARD_WIDTH * 4}vh`;
 
@@ -61,6 +65,7 @@ function updateBoardView() {
   }
 }
 
-updateScoreView();
 createBoardView();
-const viewInterval = setInterval(updateBoardView, SNAKE_SPEED);
+
+slowSelector.classList.add("selected");
+slowSelector.addEventListener("click",() => {startGame(slow)});
