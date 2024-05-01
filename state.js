@@ -30,6 +30,14 @@ function generateBoard(width, height) {
   }
 }
 
+function resetBoard() {
+  for (let i = 0; i < BOARD_HEIGHT; ++i) {
+    for (let j = 0; j < BOARD_WIDTH; ++j) {
+      BOARD[i][j] = null;
+    }
+  }
+}
+
 function createSnake(length, x, y) {
   SNAKE_LENGTH = length;
 
@@ -98,9 +106,10 @@ function updateBoardState() {
     SNAKE_HEAD[1] === BOARD_WIDTH
   ) {
     clearIntervals();
-    generateBoard(30, 15);
+    // generateBoard(30, 15);
     startMenu.style.visibility = "visible";
-    deleteFood();
+    resetBoard();
+    updateBoardView();
   }
 
   for (let i = 1; i !== SNAKE_ARRAY.length; ++i) {
@@ -109,6 +118,7 @@ function updateBoardState() {
       SNAKE_HEAD[1] === SNAKE_ARRAY[i][1]
     ) {
       clearIntervals();
+      startMenu.style.visibility = "visible";
     }
   }
 
@@ -135,32 +145,3 @@ generateBoard(30, 15);
 let stateInterval;
 let viewInterval;
 // const stateInterval = setInterval(updateBoardState, SNAKE_SPEED);
-function startGame(SNAKE_SPEED) {
-  startMenu.style.visibility = "hidden";
-
-  if (SNAKE_SPEED == SLOW) {
-    console.log("start on slow");
-    createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
-    generateFood();
-    stateInterval = setInterval(() => {
-      updateBoardState();
-    }, SLOW);
-    viewInterval = setInterval(updateBoardView, SLOW);
-  } else if (SNAKE_SPEED == NORMAL) {
-    console.log("start on normal");
-    createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
-    generateFood();
-    stateInterval = setInterval(() => {
-      updateBoardState();
-    }, NORMAL);
-    viewInterval = setInterval(updateBoardView, NORMAL);
-  } else if (SNAKE_SPEED == FAST) {
-    console.log("start on fast");
-    createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
-    generateFood();
-    stateInterval = setInterval(() => {
-      updateBoardState();
-    }, FAST);
-    viewInterval = setInterval(updateBoardView, FAST);
-  }
-}

@@ -6,7 +6,7 @@ const slowSelector = document.getElementById("slow");
 const normalSelector = document.getElementById("normal");
 const fastSelector = document.getElementById("fast");
 const startMenu = document.getElementById("startMenu");
-
+const startMenuElement = document.getElementsByClassName("speed-selector");
 bottomInfoText.style.width = `${BOARD_WIDTH * 4}vh`;
 
 document.addEventListener("keydown", handleKeyDown);
@@ -67,16 +67,17 @@ function updateBoardView() {
 
 createBoardView();
 
-slowSelector.classList.add("selected");
-normalSelector.classList.add("selected");
-fastSelector.classList.add("selected");
+function handleMenuElementEnter(event) {
+  const element = event.target;
+  element.classList.add("selected");
+}
+function handleMenuElementLeave(event) {
+  const element = event.target;
+  element.classList.remove("selected");
+}
 
-slowSelector.addEventListener("click", () => {
-  startGame(SLOW);
-});
-normalSelector.addEventListener("click", () => {
-  startGame(NORMAL);
-});
-fastSelector.addEventListener("click", () => {
-  startGame(FAST);
-});
+for (let i = 0; i < startMenuElement.length; ++i) {
+  startMenuElement[i].addEventListener("mouseenter", handleMenuElementEnter);
+  startMenuElement[i].addEventListener("mouseleave", handleMenuElementLeave);
+}
+
