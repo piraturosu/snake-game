@@ -1,17 +1,17 @@
-//css food
-scor actual + record DONE
+css food - DONE
+scor actual + record - DONE
 
 functionalitate game over:
- - reset scor actual / verificat record
- - afisat meniu dificultate
+ - reset scor actual / verificat record - DONE
+ - afisat meniu dificultate - DONE
 
 meniu start
- - 3 nivele de viteza(slow, normal, fast)
- - selectie cu mouse
- - selectie cu taste sus/jos + enter
- - efect indicator selectie curenta(taste + mouseover)
- - se afiseaza la load + fiecare reset dupa game over
+ - 3 nivele de viteza(slow, normal, fast) - DONE
+ - selectie cu mouse - DONE
+ - selectie cu taste sus/jos + enter - DONE
+ - efect indicator selectie curenta(taste + mouseover) - in progress
+ - se afiseaza la load + fiecare reset dupa game over - DONE
 
-functionalitate dificultati
+functionalitate dificultati - DONE
 
 countdown start
