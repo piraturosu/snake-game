@@ -49,7 +49,7 @@ ol {
   left: 50vw;
   transform: translate(-50%, -14vh);
 
-  visibility: hidden;
+  /* visibility: hidden; */
   display: flex;
   justify-content: space-between;
 

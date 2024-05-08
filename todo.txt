@@ -1,7 +1,9 @@
 //css food
-scor actual + record
+scor actual + record DONE
 
-functionalitate game over: reset scor actual / verificat record, afisat buton restart
+functionalitate game over:
+ - reset scor actual / verificat record
+ - afisat meniu dificultate
 
 meniu start
  - 3 nivele de viteza(slow, normal, fast)

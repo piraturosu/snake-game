@@ -106,10 +106,12 @@ function updateBoardState() {
     SNAKE_HEAD[1] === BOARD_WIDTH
   ) {
     clearIntervals();
-    // generateBoard(30, 15);
-    startMenu.style.visibility = "visible";
     resetBoard();
     updateBoardView();
+    startMenu.style.visibility = "visible";
+    document.removeEventListener("keydown", handleKeyDown);
+    document.addEventListener("keydown", handleMenuElementKeyDown);
+    return;
   }
 
   for (let i = 1; i !== SNAKE_ARRAY.length; ++i) {
@@ -118,7 +120,12 @@ function updateBoardState() {
       SNAKE_HEAD[1] === SNAKE_ARRAY[i][1]
     ) {
       clearIntervals();
+      resetBoard();
+      updateBoardView();
       startMenu.style.visibility = "visible";
+      document.removeEventListener("keydown", handleKeyDown);
+      document.addEventListener("keydown", handleMenuElementKeyDown);
+      return;
     }
   }
 
