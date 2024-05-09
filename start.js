@@ -7,7 +7,6 @@ function startGame(SNAKE_SPEED) {
 
   resetBoard();
   countdown().then(() => {
-    console.log("Countdown completed! Running another function...");
     createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
     generateFood();
     updateScoreView();
@@ -25,7 +24,6 @@ function startGame(SNAKE_SPEED) {
     deadInterval = setInterval(() => {
       resetGame();
     }, SNAKE_SPEED);
-    // Run another function after countdown completes
   });
 }
 
@@ -34,10 +32,16 @@ function resetGame() {
     clearIntervals();
     resetBoard();
     updateBoardView();
-    startMenu.style.visibility = "visible";
-    document.removeEventListener("keydown", handleKeyDown);
-    document.addEventListener("keydown", handleMenuElementKeyDown);
-    toggleMouseListeners("add");
+    gameOver();
+    updateBoardView();
+    setTimeout(() => {
+      resetBoard();
+      updateBoardView();
+      startMenu.style.visibility = "visible";
+      document.removeEventListener("keydown", handleKeyDown);
+      document.addEventListener("keydown", handleMenuElementKeyDown);
+      toggleMouseListeners("add");
+    }, 2000);
   }
 }
 
@@ -52,17 +56,6 @@ normalSelector.addEventListener("click", () => startGame(GAME_SPEED.NORMAL));
 fastSelector.addEventListener("click", () => startGame(GAME_SPEED.FAST));
 
 toggleMouseListeners("add");
-
-// function countdown() {
-//   numberThree();
-//   updateBoardView();
-//   setTimeout(resetBoard, 1000);
-//   numberTwo();
-//   updateBoardView();
-//   setTimeout(resetBoard, 1000);
-//   numberOne();
-//   setTimeout(resetBoard, 1000);
-// }
 
 function countdown() {
   return new Promise((resolve) => {
@@ -85,5 +78,3 @@ function countdown() {
     }, 1000);
   });
 }
-
-// Usage:
