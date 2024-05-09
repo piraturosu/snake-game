@@ -7,6 +7,11 @@ const SNAKE_BODY = 0;
 const GAME_SPEED = { SLOW: 200, NORMAL: 150, FAST: 100 };
 let SNAKE_LENGTH;
 
+let stateInterval;
+let viewInterval;
+let deadInterval;
+let isDead = false;
+
 // 🐛 🐞 🦋 🐁 🐀 🐿 🍄 🐓 🐇 🐤 🐣
 // 👟 🥾 🧦 🌵 🦔 🦂 🧦 🌵 🦔 🦂
 // 🐍

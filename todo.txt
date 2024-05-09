@@ -14,4 +14,9 @@ meniu start
 
 functionalitate dificultati - DONE
 
+nume jucator
+
+leaderboard jucatori
+
 countdown start
+

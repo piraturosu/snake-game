@@ -68,11 +68,6 @@ function setDirection(keyString) {
 }
 let frameReady = false;
 
-function clearIntervals() {
-  clearInterval(stateInterval);
-  clearInterval(viewInterval);
-}
-
 function updateScoreState() {
   currentScore += 5;
   storedRecord = getNumberFromLocalStorage(key);
@@ -105,12 +100,7 @@ function updateBoardState() {
     SNAKE_HEAD[0] === BOARD_HEIGHT ||
     SNAKE_HEAD[1] === BOARD_WIDTH
   ) {
-    clearIntervals();
-    resetBoard();
-    updateBoardView();
-    startMenu.style.visibility = "visible";
-    document.removeEventListener("keydown", handleKeyDown);
-    document.addEventListener("keydown", handleMenuElementKeyDown);
+    isDead = true;
     return;
   }
 
@@ -119,12 +109,7 @@ function updateBoardState() {
       SNAKE_HEAD[0] === SNAKE_ARRAY[i][0] &&
       SNAKE_HEAD[1] === SNAKE_ARRAY[i][1]
     ) {
-      clearIntervals();
-      resetBoard();
-      updateBoardView();
-      startMenu.style.visibility = "visible";
-      document.removeEventListener("keydown", handleKeyDown);
-      document.addEventListener("keydown", handleMenuElementKeyDown);
+      isDead = true;
       return;
     }
   }
@@ -146,9 +131,5 @@ function updateBoardState() {
 
   frameReady = true;
 }
+
 generateBoard(30, 15);
-// createSnake(5, Math.floor(BOARD_WIDTH / 2), Math.floor(BOARD_HEIGHT / 2));
-// generateFood();
-let stateInterval;
-let viewInterval;
-// const stateInterval = setInterval(updateBoardState, SNAKE_SPEED);
