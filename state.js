@@ -133,3 +133,45 @@ function updateBoardState() {
 }
 
 generateBoard(30, 15);
+
+function numberThree() {
+  BOARD[4][14] = 0;
+  BOARD[4][15] = 0;
+  BOARD[5][13] = 0;
+  BOARD[5][16] = 0;
+  BOARD[6][16] = 0;
+  BOARD[7][15] = 0;
+  BOARD[8][16] = 0;
+  BOARD[9][13] = 0;
+  BOARD[9][16] = 0;
+  BOARD[10][14] = 0;
+  BOARD[10][15] = 0;
+}
+
+function numberTwo() {
+  BOARD[4][14] = 0;
+  BOARD[4][15] = 0;
+  BOARD[5][13] = 0;
+  BOARD[5][16] = 0;
+  BOARD[6][16] = 0;
+  BOARD[7][15] = 0;
+  BOARD[8][14] = 0;
+  BOARD[9][13] = 0;
+  BOARD[10][13] = 0;
+  BOARD[10][14] = 0;
+  BOARD[10][15] = 0;
+  BOARD[10][16] = 0;
+}
+
+function numberOne() {
+  BOARD[4][15] = 0;
+  BOARD[5][14] = 0;
+  BOARD[5][15] = 0;
+  BOARD[6][15] = 0;
+  BOARD[7][15] = 0;
+  BOARD[8][15] = 0;
+  BOARD[9][15] = 0;
+  BOARD[10][14] = 0;
+  BOARD[10][15] = 0;
+  BOARD[10][16] = 0;
+}
