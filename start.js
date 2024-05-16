@@ -72,7 +72,7 @@ function countdown() {
         setTimeout(() => {
           resetBoard();
           updateBoardView();
-          resolve(); // Resolve the promise when countdown completes
+          resolve();
         }, 1000);
       }, 1000);
     }, 1000);

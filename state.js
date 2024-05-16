@@ -94,24 +94,18 @@ function updateBoardState() {
   }
   SNAKE_ARRAY.unshift(SNAKE_HEAD);
 
-  if (
+  isDead =
     SNAKE_HEAD[1] === -1 ||
     SNAKE_HEAD[0] === -1 ||
     SNAKE_HEAD[0] === BOARD_HEIGHT ||
-    SNAKE_HEAD[1] === BOARD_WIDTH
-  ) {
-    isDead = true;
-    return;
-  }
+    SNAKE_HEAD[1] === BOARD_WIDTH;
+  if (isDead) return;
 
   for (let i = 1; i !== SNAKE_ARRAY.length; ++i) {
-    if (
+    isDead =
       SNAKE_HEAD[0] === SNAKE_ARRAY[i][0] &&
-      SNAKE_HEAD[1] === SNAKE_ARRAY[i][1]
-    ) {
-      isDead = true;
-      return;
-    }
+      SNAKE_HEAD[1] === SNAKE_ARRAY[i][1];
+    if (isDead) return;
   }
 
   if (

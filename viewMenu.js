@@ -37,8 +37,7 @@ function handleMenuElementKeyDown(event) {
         startMenuElements[i + 1].classList.add("selected");
         return;
       }
-    }
-    if (event.key === "Enter") {
+    } else if (event.key === "Enter") {
       if (startMenuElements[i].classList.contains("selected") && i === 0) {
         startGame(GAME_SPEED.SLOW);
       } else if (
@@ -55,6 +54,7 @@ function handleMenuElementKeyDown(event) {
     }
   }
 }
+
 function toggleMouseListeners(switchListener) {
   if (switchListener === "add") {
     for (let i = 0; i < startMenuElements.length; ++i) {
