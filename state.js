@@ -70,12 +70,23 @@ let frameReady = false;
 
 function updateScoreState() {
   currentScore += 5;
-  storedRecord = getNumberFromLocalStorage(key);
+  storedRecord = LEADERBOARD[PLAYER_NAME] ?? currentScore;
   if (currentScore >= storedRecord) {
-    storeRecordScore(key, currentScore);
-    storedRecord = getNumberFromLocalStorage(key);
+    storeScore();
   }
   justAteState = true;
+}
+
+function resetScoreAndUpdateRecord() {
+  currentScore = 0;
+  storedRecord = LEADERBOARD[PLAYER_NAME] ?? 0;
+}
+
+function storeScore() {
+  if ((LEADERBOARD[PLAYER_NAME] ?? 0) < currentScore) {
+    LEADERBOARD[PLAYER_NAME] = currentScore;
+  }
+  saveLeaderboard(LEADERBOARD);
 }
 
 let justAteState = false;

@@ -14,36 +14,42 @@
     />
   </head>
   <body>
-    <div id="topMenu">
+    <div id="titleText">
       <h1>classic snake</h1>
     </div>
     <div id="board"></div>
     <div id="startMenu">
       <ul>
-        <li id="">pick your speed:</li>
-        <div id="unu">
-          <li id="slow" class="speed-selector">slow</li>
-        </div>
-
-        <li id="normal" class="speed-selector">normal</li>
-        <li id="fast" class="speed-selector">fast</li>
+        <li id="">Choose difficulty:</li>
+        <li id="slow" class="speed-selector">easy</li>
+        <li id="normal" class="speed-selector">medium</li>
+        <li id="fast" class="speed-selector">hard</li>
       </ul>
     </div>
     <div id="bottomMenu">
       <div class="infoScore">
         <p>SCORE: <span id="scoreSpan"></span></p>
       </div>
-      <div class="respawnButton"></div>
+      <div class="playerName">
+        <p>NAME: <span id="nameSpan"></span></p>
+        <div>
+          <input class="hidden" />
+        </div>
+        <div>
+          <p id="errorMessage"></p>
+        </div>
+      </div>
       <div class="infoScore">
         <p>RECORD: <span id="recordSpan"></span></p>
       </div>
     </div>
+    <script src="storage.js"></script>
     <script src="variables.js"></script>
     <script src="utils.js"></script>
-    <script src="storage.js"></script>
     <script src="state.js"></script>
     <script src="view.js"></script>
     <script src="viewMenu.js"></script>
+    <script src="viewBottomMenu.js"></script>
     <script src="start.js"></script>
   </body>
 </html>

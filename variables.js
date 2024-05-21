@@ -8,8 +8,8 @@ const GAME_SPEED = { SLOW: 200, NORMAL: 150, FAST: 100 };
 let SNAKE_LENGTH;
 
 let stateInterval;
-let viewInterval;
-let deadInterval;
+let viewIntervalId;
+let deadIntervalId;
 let isDead = false;
 
 // 🐛 🐞 🦋 🐁 🐀 🐿 🍄 🐓 🐇 🐤 🐣
@@ -29,7 +29,9 @@ let FOOD_POSITION;
 let indexOfFood;
 
 let currentScore = 0;
-let localRecord = 0;
+let PLAYER_NAME = restorePlayerName();
+const LEADERBOARD = restoreLeaderboard();
+let storedRecord = LEADERBOARD[PLAYER_NAME] ?? 0;
 
 function numberThree() {
   BOARD[4][14] = 0;

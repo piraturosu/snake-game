@@ -1,7 +1,6 @@
 const slowSelector = document.getElementById("slow");
 const normalSelector = document.getElementById("normal");
 const fastSelector = document.getElementById("fast");
-const startMenu = document.getElementById("startMenu");
 const startMenuElements = document.getElementsByClassName("speed-selector");
 
 startMenuElements[1].classList.add("selected");
@@ -66,5 +65,3 @@ function toggleMouseListeners(switchListener) {
     }
   }
 }
-
-document.addEventListener("keydown", handleMenuElementKeyDown);

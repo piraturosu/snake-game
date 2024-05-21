@@ -18,7 +18,7 @@ ol {
   padding: 0;
 }
 
-#topMenu {
+#titleText {
   position: fixed;
   top: 0;
   left: 50vw;
@@ -29,7 +29,7 @@ ol {
   color: #2d9bf0;
 }
 
-#topMenu h1 {
+#titleText h1 {
   font-size: 4vh;
 }
 
@@ -41,6 +41,7 @@ ol {
   transform: translate(-50%, -50%);
 
   display: grid;
+  animation: fadeOut 1s ease-in-out;
 }
 
 #bottomMenu {
@@ -54,20 +55,49 @@ ol {
   justify-content: space-between;
 
   font-size: 2vh;
+  animation: fadeOut 1s ease-in-out;
+}
+
+#errorMessage {
+  position: fixed;
+  /* bottom: 0vh; */
+  /* left: 50vw; */
+  /* transform: translate(-90%, 4vh); */
+}
+
+.playerName {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  max-width: 15vh;
+  width: 15vh;
+
+  margin: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
+
+input:focus {
+  padding: 0;
+  border: 0;
+  outline: none;
 }
 
 #startMenu {
-  width: 50vh;
-  height: 30vh;
+  width: 48vh;
+  height: 28.15vh;
 
   position: fixed;
   bottom: 22vh;
   left: 50vw;
-  transform: translate(-50%, -14vh);
+  transform: translate(-50.2%, -14vh);
 
   display: flex;
 
-  background-color: rgba(39, 189, 245, 0.8);
+  background-color: rgba(39, 189, 245, 0.85);
+  animation: fadeOut 1s ease-in-out;
 }
 
 #startMenu ul {
@@ -94,6 +124,7 @@ ol {
 
 .selected {
   background-color: #fac710;
+  cursor: pointer;
 }
 
 .cell {
@@ -136,4 +167,26 @@ ol {
 
 .food p {
   font-size: 2.7vh;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

@@ -1,7 +1,14 @@
 function startGame(SNAKE_SPEED) {
+  if (
+    PLAYER_NAME == "PLAYER" ||
+    !playerNameInput.classList.contains("hidden")
+  ) {
+    showErrorText("Choose player name!");
+    return;
+  }
   isDead = false;
   DIRECTION = DIRECTIONS.LEFT;
-  currentScore = 0;
+  resetScoreAndUpdateRecord();
   SNAKE_ARRAY.length = 0;
   startMenu.style.visibility = "hidden";
 
@@ -18,10 +25,10 @@ function startGame(SNAKE_SPEED) {
     stateInterval = setInterval(() => {
       updateBoardState();
     }, SNAKE_SPEED);
-    viewInterval = setInterval(() => {
+    viewIntervalId = setInterval(() => {
       updateBoardView();
     }, SNAKE_SPEED);
-    deadInterval = setInterval(() => {
+    deadIntervalId = setInterval(() => {
       resetGame();
     }, SNAKE_SPEED);
   });
@@ -29,6 +36,8 @@ function startGame(SNAKE_SPEED) {
 
 function resetGame() {
   if (isDead) {
+    resetScoreAndUpdateRecord();
+    updateScoreView();
     clearIntervals();
     resetBoard();
     updateBoardView();
@@ -47,8 +56,8 @@ function resetGame() {
 
 function clearIntervals() {
   clearInterval(stateInterval);
-  clearInterval(viewInterval);
-  clearInterval(deadInterval);
+  clearInterval(viewIntervalId);
+  clearInterval(deadIntervalId);
 }
 
 slowSelector.addEventListener("click", () => startGame(GAME_SPEED.SLOW));
