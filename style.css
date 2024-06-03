@@ -41,7 +41,7 @@ ol {
   transform: translate(-50%, -50%);
 
   display: grid;
-  animation: fadeOut 1s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
 }
 
 #bottomMenu {
@@ -55,7 +55,7 @@ ol {
   justify-content: space-between;
 
   font-size: 2vh;
-  animation: fadeOut 1s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
 }
 
 #errorMessage {
@@ -97,7 +97,7 @@ input:focus {
   display: flex;
 
   background-color: rgba(39, 189, 245, 0.85);
-  animation: fadeOut 1s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
 }
 
 #startMenu ul {
