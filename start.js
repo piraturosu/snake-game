@@ -19,7 +19,6 @@ function startGame(SNAKE_SPEED) {
     updateScoreView();
 
     toggleMouseListeners("remove");
-    document.removeEventListener("keydown", handleMenuElementKeyDown);
     document.addEventListener("keydown", handleKeyDown);
 
     stateInterval = setInterval(() => {
@@ -68,6 +67,7 @@ toggleMouseListeners("add");
 
 function countdown() {
   return new Promise((resolve) => {
+    document.removeEventListener("keydown", handleMenuElementKeyDown);
     numberThree();
     updateBoardView();
     setTimeout(() => {

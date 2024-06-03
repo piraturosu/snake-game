@@ -49,6 +49,7 @@ function handleMenuElementKeyDown(event) {
         i === 2
       ) {
         startGame(GAME_SPEED.FAST);
+        
       }
     }
   }
