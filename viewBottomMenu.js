@@ -1,24 +1,30 @@
-const playerNameInput = document.querySelector("input");
-const playerNameText = document.getElementById("nameSpan");
-const errorText = document.getElementById("errorMessage");
+const playerNameMenu = document.getElementById("playerNameMenu");
+const difficultyMenu = document.getElementById("difficultyMenu");
+const playerNameText = document.getElementById("playerNameText");
+const playerNameInput = document.getElementById("playerNameInput");
+const infoMessage = document.getElementById("infoMessage");
 const regex = /^[A-Za-z0-9]+$/;
 
-let errorTextTimerId = null;
+let infoMessageTimerId = null;
+
+if (PLAYER_NAME) {
+  hidePlayerNameMenu();
+}
 
 function showPlayerName() {
   playerNameText.innerHTML = PLAYER_NAME;
 }
 
-function hideErrorText() {
-  errorText.style.fontSize = "0vh";
+function showErrorText(text) {
+  infoMessage.innerHTML = text;
+  infoMessage.style.fontSize = "2vh";
+
+  clearTimeout(infoMessageTimerId);
+  infoMessageTimerId = setTimeout(hideErrorText, 3000);
 }
 
-function showErrorText(text) {
-  errorText.innerHTML = text;
-  errorText.style.fontSize = "2vh";
-
-  clearTimeout(errorTextTimerId);
-  errorTextTimerId = setTimeout(hideErrorText, 3000);
+function hideErrorText() {
+  infoMessage.style.fontSize = "0vh";
 }
 
 function validatePlayerName(value) {
@@ -45,25 +51,29 @@ function handlePlayerNameKeyDown(event) {
 
   PLAYER_NAME = name;
   savePlayerName();
-  hidePlayerNameInput();
+  hidePlayerNameMenu();
   showPlayerName();
+  resetScoreAndUpdateRecord();
   updateScoreView();
   document.addEventListener("keydown", handleMenuElementKeyDown);
 
   event.stopPropagation();
 }
 
-function hidePlayerNameInput() {
-  playerNameInput.classList.add("hidden");
-  playerNameText.classList.remove("hidden");
+function hidePlayerNameMenu() {
+  playerNameMenu.classList.add("hidden");
+  difficultyMenu.classList.remove("hidden");
+  document.addEventListener("keydown", handleMenuElementKeyDown);
 }
 
-function showPlayerNameInput() {
-  playerNameText.classList.add("hidden");
-  playerNameInput.classList.remove("hidden");
+function showPlayerNameMenu() {
+  document.removeEventListener("keydown", handleMenuElementKeyDown);
+  difficultyMenu.classList.add("hidden");
+  playerNameMenu.classList.remove("hidden");
+  playerNameInput.focus();
 }
 
 playerNameInput.addEventListener("keydown", handlePlayerNameKeyDown);
-playerNameText.addEventListener("click", showPlayerNameInput);
+playerNameText.addEventListener("click", showPlayerNameMenu);
 
 showPlayerName();

@@ -70,7 +70,7 @@ let frameReady = false;
 
 function updateScoreState() {
   currentScore += 5;
-  storedRecord = LEADERBOARD[PLAYER_NAME] ?? currentScore;
+  storedRecord = LEADERBOARD[PLAYER_NAME] || currentScore;
   if (currentScore >= storedRecord) {
     storeScore();
   }
@@ -79,7 +79,7 @@ function updateScoreState() {
 
 function resetScoreAndUpdateRecord() {
   currentScore = 0;
-  storedRecord = LEADERBOARD[PLAYER_NAME] ?? 0;
+  storedRecord = LEADERBOARD[PLAYER_NAME] || 0;
 }
 
 function storeScore() {

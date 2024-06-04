@@ -9,6 +9,12 @@ body {
   font-family: "IBM Plex Mono", monospace;
   font-weight: 400;
   font-style: normal;
+  overflow: hidden;
+}
+
+p,
+h1 {
+  margin: 0;
 }
 
 ul,
@@ -20,11 +26,16 @@ ol {
 
 #titleText {
   position: fixed;
-  top: 0;
+  top: 10vh;
   left: 50vw;
-  transform: translate(-50%, 10vh);
+  transform: translate(-50%, 0vh);
+
+  font-size: 4vh;
 
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   color: #2d9bf0;
 }
@@ -58,16 +69,29 @@ ol {
   animation: fadeIn 1s ease-in-out;
 }
 
-#errorMessage {
+#playerNameMenu {
+  width: 48vh;
+  height: 28.15vh;
+
   position: fixed;
-  /* bottom: 0vh; */
-  /* left: 50vw; */
-  /* transform: translate(-90%, 4vh); */
+  bottom: 0vh;
+  left: 0vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+
+  line-height: 2;
+  font-size: 3.3vh;
+  color: white;
 }
 
-.playerName {
+#playerNameText {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 input {
@@ -77,6 +101,13 @@ input {
   margin: 0;
   padding-inline-start: 0;
   padding-inline-end: 0;
+
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3vh;
+  text-align: center;
+
 }
 
 input:focus {
@@ -127,6 +158,10 @@ input:focus {
   cursor: pointer;
 }
 
+.infoScore {
+  min-width: 12vh;
+}
+
 .cell {
   width: 4vh;
   height: 4vh;
@@ -170,6 +205,7 @@ input:focus {
 }
 
 .hidden {
+  visibility: hidden;
   display: none;
 }
 

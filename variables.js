@@ -31,7 +31,7 @@ let indexOfFood;
 let currentScore = 0;
 let PLAYER_NAME = restorePlayerName();
 const LEADERBOARD = restoreLeaderboard();
-let storedRecord = LEADERBOARD[PLAYER_NAME] ?? 0;
+let storedRecord = LEADERBOARD[PLAYER_NAME] || 0;
 
 function numberThree() {
   BOARD[4][14] = 0;

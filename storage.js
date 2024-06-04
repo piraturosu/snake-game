@@ -3,7 +3,7 @@ function savePlayerName() {
 }
 
 function restorePlayerName() {
-  return sessionStorage.getItem("PLAYER_NAME") ?? "PLAYER";
+  return sessionStorage.getItem("PLAYER_NAME") || "";
 }
 
 function restoreLeaderboard() {

@@ -1,8 +1,5 @@
 function startGame(SNAKE_SPEED) {
-  if (
-    PLAYER_NAME == "PLAYER" ||
-    !playerNameInput.classList.contains("hidden")
-  ) {
+  if (!PLAYER_NAME) {
     showErrorText("Choose player name!");
     return;
   }

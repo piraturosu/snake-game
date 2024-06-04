@@ -16,28 +16,33 @@
   <body>
     <div id="titleText">
       <h1>classic snake</h1>
+      <div>
+        <p id="infoMessage"></p>
+      </div>
     </div>
     <div id="board"></div>
     <div id="startMenu">
-      <ul>
-        <li id="">Choose difficulty:</li>
-        <li id="slow" class="speed-selector">easy</li>
-        <li id="normal" class="speed-selector">medium</li>
-        <li id="fast" class="speed-selector">hard</li>
-      </ul>
+      <div id="playerNameMenu">
+        <div>
+          <p>Enter Player Name:</p>
+        </div>
+        <input id="playerNameInput" />
+      </div>
+      <div class="hidden" id="difficultyMenu">
+        <ul>
+          <li id="">Choose difficulty:</li>
+          <li id="slow" class="speed-selector">easy</li>
+          <li id="normal" class="speed-selector">medium</li>
+          <li id="fast" class="speed-selector">hard</li>
+        </ul>
+      </div>
     </div>
     <div id="bottomMenu">
       <div class="infoScore">
         <p>SCORE: <span id="scoreSpan"></span></p>
       </div>
-      <div class="playerName">
-        <p>NAME: <span id="nameSpan"></span></p>
-        <div>
-          <input class="hidden" />
-        </div>
-        <div>
-          <p id="errorMessage"></p>
-        </div>
+      <div class="infoScore">
+        <p id="playerNameText"></p>
       </div>
       <div class="infoScore">
         <p>RECORD: <span id="recordSpan"></span></p>
