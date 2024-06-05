@@ -4,7 +4,8 @@ const startMenu = document.getElementById("startMenu");
 const bottomInfoText = document.getElementById("bottomMenu");
 const scoreSpan = document.getElementById("scoreSpan");
 const recordSpan = document.getElementById("recordSpan");
-const leaderboardContainer = document.getElementById("leaderboard");
+const leaderboardContainer = document.getElementById("leaderboardMenu");
+const leaderboard = document.getElementById("leaderboard");
 const closeButton = document.getElementById("closeButton");
 
 gameTextElement.addEventListener("click", showLeaderboard);
@@ -83,6 +84,7 @@ function createLeaderboardItem(name, score) {
 }
 
 function showLeaderboard() {
+  leaderboardContainer.classList.remove("hidden");
   boardUIElement.style.animationName = "fadeOut";
   boardUIElement.style.opacity = 0;
   startMenu.style.animationName = "fadeOut";
@@ -90,18 +92,21 @@ function showLeaderboard() {
   bottomInfoText.style.animationName = "fadeOut";
   bottomInfoText.style.opacity = 0;
 
+  leaderboardContainer.scrollTop = 0;
+
   const keyValueArray = Object.entries(LEADERBOARD);
   keyValueArray.sort((a, b) => b[1] - a[1]);
 
   for (const [key, value] of keyValueArray) {
     const item = createLeaderboardItem(key, value);
-    leaderboardContainer.appendChild(item);
+    leaderboard.appendChild(item);
   }
 
   closeButton.addEventListener("click", hideLeaderboard);
 }
 
 function hideLeaderboard() {
+  leaderboardContainer.classList.add("hidden");
   boardUIElement.style.animationName = "fadeIn";
   boardUIElement.style.opacity = 1;
   startMenu.style.animationName = "fadeIn";
@@ -109,8 +114,8 @@ function hideLeaderboard() {
   bottomInfoText.style.animationName = "fadeIn";
   bottomInfoText.style.opacity = 1;
 
-  while (leaderboardContainer.firstChild) {
-    leaderboardContainer.removeChild(leaderboardContainer.firstChild);
+  while (leaderboard.firstChild) {
+    leaderboard.removeChild(leaderboard.firstChild);
   }
 
   closeButton.removeEventListener("click", hideLeaderboard);

@@ -38,6 +38,7 @@ ol {
   align-items: center;
 
   color: #2d9bf0;
+  cursor: pointer;
 }
 
 #titleText h1 {
@@ -65,7 +66,7 @@ ol {
   display: flex;
   justify-content: space-between;
 
-  font-size: 2vh;
+  font-size: 2.5vh;
   animation: fadeIn 1s ease-in-out;
 }
 
@@ -99,15 +100,16 @@ input {
   width: 15vh;
 
   margin: 0;
-  padding-inline-start: 0;
-  padding-inline-end: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+
 
   font-family: "IBM Plex Mono", monospace;
   font-weight: 400;
   font-style: normal;
-  font-size: 3vh;
+  font-size: 2.5vh;
   text-align: center;
-
 }
 
 input:focus {
@@ -204,9 +206,82 @@ input:focus {
   font-size: 2.7vh;
 }
 
+#leaderboard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+
+  width: 40vh;
+  height: 42.5vh;
+  margin: 0;
+
+  font-size: 2vh;
+
+  background-color: rgba(39, 189, 245, 0.85);
+  color: white;
+  box-shadow: 0.5vh 0.5vh 2vh rgba(0, 0, 0, 0.5);
+  outline: 0.1vh solid #000;
+  border-radius: 0.75vh;
+
+  text-align: center;
+  overflow: auto;
+
+  animation: fadeIn 1s ease-in-out;
+
+  z-index: 1000;
+}
+
+#leaderboard::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.leaderboardItem {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-block-start: 1.5vh;
+  margin-block-end: 1.5vh;
+}
+
+.leaderboardItem > :nth-child(odd) {
+  text-align: left;
+  margin-left: 4vh;
+}
+
+.leaderboardItem > :nth-child(even) {
+  text-align: right;
+  margin-right: 4vh;
+}
+
+#closeButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 30vh);
+
+  /* width: 7vh;
+  height: 7.5vh; */
+
+  background-color: rgba(39, 189, 245, 0.85);
+  color: white;
+
+  font-size: 2.5vh;
+  font-weight: bold;
+  padding-bottom: 4px;
+
+  text-align: center;
+  outline: 0.1vh solid #000;
+  box-shadow: 0.5vh 0.5vh 2vh rgba(0, 0, 0, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: filter 0.3s ease-in 1s;
+  animation: fadeIn 1s ease-in-out;
+  border-radius: 0.75vh;
+}
+
 .hidden {
-  visibility: hidden;
-  display: none;
+  display: none !important;
 }
 
 @keyframes fadeIn {

@@ -45,6 +45,7 @@ function resetGame() {
       startMenu.style.visibility = "visible";
       document.removeEventListener("keydown", handleKeyDown);
       document.addEventListener("keydown", handleMenuElementKeyDown);
+      gameTextElement.addEventListener("click", showLeaderboard);
       toggleMouseListeners("add");
     }, 2000);
   }
@@ -65,6 +66,8 @@ toggleMouseListeners("add");
 function countdown() {
   return new Promise((resolve) => {
     document.removeEventListener("keydown", handleMenuElementKeyDown);
+    gameTextElement.removeEventListener("click", showLeaderboard);
+
     numberThree();
     updateBoardView();
     setTimeout(() => {
