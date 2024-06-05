@@ -47,6 +47,9 @@ function resetGame() {
       document.addEventListener("keydown", handleMenuElementKeyDown);
       gameTextElement.addEventListener("click", showLeaderboard);
       toggleMouseListeners("add");
+      if (PLAYER_NAME) {
+        hidePlayerNameMenu();
+      }
     }, 2000);
   }
 }
